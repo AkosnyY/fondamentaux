@@ -23,7 +23,7 @@ function getProductInfo(productNames) {
     for (let i = 0; i < productNamesList.length; i++) {
     const productName = productNamesList[i];
     const productPrice = getProductPrice(productName)
-    if (productPrice === null) {
+    if (productPrice === NaN) {
       return `Le produit "${productName}" n'a pas été trouvé.`
     }
     productList += `Le ${productName} coûte ${productPrice}€`
@@ -113,6 +113,8 @@ function filterByPrice(productNames, maxPrice) {
   const productNamesList = productNames.split(", ")
   for (let i = 0; i < productNamesList.length; i++) {
     const productName = productNamesList[i];
+
+
     const productPrice = getProductPrice(productName)
     if (productPrice === null) {
       return `Le produit "${productName}" n'a pas été trouvé.`
